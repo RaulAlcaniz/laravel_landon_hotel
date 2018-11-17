@@ -11,7 +11,6 @@
 |
 */
 Route::middleware('auth')->group(function(){
-
     Route::get('/', 'ContentsController@home')->name('home');
     Route::get('/clients', 'ClientController@index')->name('clients');
     Route::get('/clients/new', 'ClientController@newClient')->name('new_client');
@@ -24,6 +23,8 @@ Route::middleware('auth')->group(function(){
     
     Route::get('/book/room/{client_id}/{room_id}/{date_in}/{date_out}', 'ReservationsController@bookRoom')->name('book_room');
     Route::get('export', 'ClientController@export');
+    Route::get('/upload', 'ContentsController@upload')->name('upload');
+    Route::post('/upload', 'ContentsController@upload')->name('upload');
     
 });
 
